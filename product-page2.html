@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Product-display</title>
+    <link rel="stylesheet" href="footer.css">
+</head>
+
+<style>
+    body {
+        background-color: #D5BDAF;
+    }
+
+    div.relative {
+        position: relative;
+    }
+
+    .article {
+        color: #A86A1E;
+        font-style: oblique;
+        font-family: "Luxurious Script", cursive;
+        font-size: 70px;
+        padding-right: 30px;
+        padding-left: 550px;
+        padding-bottom: 2px;
+        padding-top: 2px;
+        margin-left: 30px;
+        margin-top: 0px;
+        border-top-style: solid;
+        border-top-width: 0px;
+    }
+
+    div.class1 {
+        position: fixed;
+        top: 0;
+        right: 0;
+    }
+
+    .form1 {
+        background-color: white;
+    }
+
+    .table {
+        background-color: white;
+        border-color: #A86A1E;
+        margin-bottom: 0px;
+        margin-top: 0px;
+        margin-left: 15px;
+    }
+
+    .td {
+        background-color: white;
+    }
+
+    .tr {
+        padding: 20px 0;
+    }
+
+    .label {
+        color: #A86A1E;
+        font-size: 60 px;
+        text-align-last: right;
+    }
+
+    .i {
+        background-color: white;
+        font-size: 25px;
+    }
+
+    select {
+        color: #A86A1E;
+        background-color: white;
+    }
+
+    #Type,
+    #Color {
+        padding-left: 9px;
+        border-top-style: solid;
+        margin-left: 10px;
+        margin-top: 3px;
+        margin-bottom: 3px;
+        font-size: 13px;
+        margin-left: 10px;
+        border-left-style: solid;
+        border-left-width: 1.6px;
+        margin-right: 20px;
+        height: 25px;
+        width: 75px;
+        font-size: 14px;
+    }
+
+    .row {
+        margin-top: 3%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    @media(max-width:700px) {
+        .row {
+            flex-direction: column;
+        }
+    }
+
+    .container {
+        width: 80%;
+        margin: auto;
+        text-align: center;
+        padding-top: 40px;
+        cursor: pointer;
+    }
+
+    .container-col {
+        flex-basis: 28%;
+        margin: 0 1.5%;
+        border-radius: 10px;
+        margin-bottom: 10px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .container-col img {
+        width: 100%;
+        height: 500px;
+        object-fit: cover;
+        display: block;
+    }
+
+    .layer {
+        background: transparent;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        bottom: 0%;
+        left: 0%;
+        transition: 0.5s;
+    }
+
+    .layer:hover {
+        background-color: white;
+        opacity: 95%;
+        height: 25%;
+    }
+
+    .layer h3 {
+        width: 100%;
+        font-weight: 500;
+        color: #A86A1E;
+        font-size: 42px;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        position: absolute;
+        opacity: 0%;
+        transition: 0.5s;
+        margin-bottom: 21px;
+        font-family: "Luxurious Script";
+    }
+
+    .layer:hover h3 {
+        bottom: 45%;
+        opacity: 1;
+    }
+
+    .layer h4 {
+        width: 100%;
+        font-weight: 500;
+        color: #A86A1E;
+        font-size: 17px;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        position: absolute;
+        opacity: 0%;
+        transition: 0.5s;
+        margin-bottom: 30.61px;
+    }
+
+    .layer:hover h4 {
+        bottom: 23%;
+        opacity: 1;
+    }
+
+    .price-box1 {
+        height: 15px;
+        width: 15px;
+        margin-bottom: 13px;
+        margin-left: 10px;
+        border-color: rgb(241, 199, 144);
+        border-left-style: solid;
+        border-left-width: 2.5px;
+        border-top-style: solid;
+        border-top-width: 2.5px;
+        border-right-style: solid;
+        border-right-width: 2.5px;
+        border-bottom-style: solid;
+        border-bottom-width: 2.4px;
+        background-color: #f08080;
+        margin-top: 10px;
+        bottom: 0;
+        position: absolute;
+        right: 60%;
+        opacity: 0%;
+        transform: translateX(50%);
+        transform: opacity 0.5s;
+    }
+
+    .layer:hover .price-box1 {
+        opacity: 1;
+        bottom: 18%;
+    }
+
+    .price-box2 {
+        height: 15px;
+        width: 15px;
+        margin-bottom: 13px;
+        padding-left: 0px;
+        margin-left: 50px;
+        border-color: rgb(242, 195, 134);
+        border-left-style: solid;
+        border-left-width: 2.5px;
+        border-top-style: solid;
+        border-top-width: 2.5px;
+        border-right-style: solid;
+        border-right-width: 2.5px;
+        border-bottom-style: solid;
+        border-bottom-width: 2.4px;
+        background-color: rgb(232, 124, 145);
+        margin-top: 10px;
+        bottom: 0;
+        position: absolute;
+        left: 40.5%;
+        opacity: 0%;
+        transform: translateX(-150%);
+        transform: opacity 0.5s;
+    }
+
+    .layer:hover .price-box2 {
+        opacity: 1;
+        bottom: 18%;
+    }
+
+    .price-box3 {
+        height: 15px;
+        width: 15px;
+        margin-bottom: 13px;
+        padding-left: 0px;
+        margin-left: 50px;
+        border-color: rgb(242, 195, 134);
+        border-left-style: solid;
+        border-left-width: 2.5px;
+        border-top-style: solid;
+        border-top-width: 2.5px;
+        border-right-style: solid;
+        border-right-width: 2.5px;
+        border-bottom-style: solid;
+        border-bottom-width: 2.4px;
+        background-color: rgb(255, 117, 144);
+        margin-top: 10px;
+        bottom: 0;
+        position: absolute;
+        left: 50%;
+        opacity: 0%;
+        transform: translateX(-150%);
+        transform: opacity 0.5s;
+    }
+
+    .layer:hover .price-box3 {
+        opacity: 1;
+        bottom: 18%;
+    }
+
+    .button {
+        width: 140px;
+        color: #e3993e;
+        margin-bottom: 5px;
+        margin-left: 10px;
+        border-color: #D5BDAF;
+        border-left-style: solid;
+        border-left-width: 1.5px;
+        border-top-style: solid;
+        border-top-width: 1.5px;
+        border-right-style: solid;
+        border-right-width: 1.5px;
+        border-bottom-style: solid;
+        border-bottom-width: 1.4px;
+        background-color: antiquewhite;
+        margin-top: 10px;
+        position: absolute;
+        right: 50%;
+        opacity: 0%;
+        transform: translateX(50%);
+        transform: opacity 0.5s;
+    }
+
+    .layer:hover .button {
+        opacity: 1;
+        bottom: 1%;
+    }
+
+    .nav {
+        display: flex;
+        padding: 0% 25%;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nav-links {
+        flex: 1
+    }
+
+    .nav-links ul li {
+        list-style: none;
+        display: inline-block;
+        padding: 30px;
+        position: relative;
+    }
+
+    .nav-links ul li a {
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+    }
+</style>
+
+<body>
+    <nav>
+        <div class="nav-links">
+            <ul style="padding-left: 417px;  margin-top: 0px; margin-bottom: 0px;">
+                <li><a href="Shringaar.html"> Home | </a></li>
+                <li><a href="Store-page.html">Store | </a></li>
+                <li><a href="">Stories | </a></li>
+                <li><a href="About--us.html">About Us | </a></li>
+                <li><a href="Contact us-page.html">Contact Us | </a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="relative">
+        <div style="background-color: white; height: 100px; width: 100%; display: flex; flex-direction: column;">
+            <form class="form1">
+                <table class="table">
+                    <tr class="tr">
+                        <td class="td">
+                            <label class="label"><i class="i"> Filter by:</i></label>
+                            <select id="Type" name="types">
+                                <option value="Type">Type</option>
+                            </select>
+                            <select id="Color" name="color">
+                                <option value="Color"> Color</option>
+                            </select>
+                        </td>
+                        <td class="td" style="padding-left: 300px;">
+                            <label for="Sort by:" class="label"><i class="i"> Sort by:</i></label>
+                            <select id="Price(high-low)" name="Price(high-low)" style="padding-left:5px;
+                                border-top-style: solid;
+                                margin-top: 3px;
+                                margin-bottom: 3px;
+                                font-size: 13px;
+                                margin-left: 10px; 
+                                border-left-style: solid;
+                                border-left-width: 1.6px;
+                                margin-right: 20px; 
+                                height: 25px;
+                                width: 123px;
+                                font-size: 14px; ">
+                                <option value="Price(high-low)">Price(high-low)</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+
+                            <article class="article"> Wedding Dresses</article>
+
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+    <section class="container">
+        <div class="circle"></div>
+        <div class="row">
+            <div class="container-col">
+                <img src="image/p1_image.jpeg" alt="wedding pic">
+                <div class="layer">
+                    <h3>Blissful Blossoms </h3>
+                    <h4>NRS 25,000</h4>
+                    <div class="price-box1"></div>
+                    <div class="price-box2"></div>
+                    <div class="price-box3"></div>
+                    <table class="button" style="height: 2px; font-size: 12px;">
+                        <tr>
+                            <th>ADD TO THE CART</th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="container-col">
+                <img src="image/p2_image.jpg" alt="wedding pic">
+                <div class="layer">
+                    <h3>Jovial Elegance</h3>
+                    <h4>NRS 30,000</h4>
+                    <div class="price-box1"></div>
+                    <div class="price-box2"></div>
+                    <div class="price-box3"></div>
+                    <table class="button" style="height: 2px; font-size: 12px;">
+                        <tr>
+                            <th>ADD TO THE CART</th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="container-col">
+                <img src="image/p3_image.jpeg" alt="wedding pic">
+                <div class="layer">
+                    <h3>Silver Embellished</h3>
+                    <h4>NRS 35,000</h4>
+                    <div class="price-box1"></div>
+                    <div class="price-box2"></div>
+                    <div class="price-box3"></div>
+                    <table class="button" style="height: 2px; font-size: 12px;">
+                        <tr>
+                            <th>ADD TO THE CART</th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="row">
+            <div class="container-col">
+                <img src="image/p4_image.jpg" alt="wedding pic">
+                <div class="layer">
+                    <h3>Blushing Rosewood Elegance</h3>
+                    <h4>NRS 25,000</h4>
+                    <div class="price-box1"></div>
+                    <div class="price-box2"></div>
+                    <div class="price-box3"></div>
+                    <table class="button" style="height: 2px; font-size: 12px;">
+                        <tr>
+                            <th>ADD TO THE CART</th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="container-col">
+                <img src="image/p8_image.jpg" alt="wedding pic">
+                <div class="layer">
+                    <h3>Matte Elegance</h3>
+                    <h4>NRS 30,000</h4>
+                    <div class="price-box1"></div>
+                    <div class="price-box2"></div>
+                    <div class="price-box3"></div>
+                    <table class="button" style="height: 2px; font-size: 12px;">
+                        <tr>
+                            <th>ADD TO THE CART</th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="container-col">
+                <img src="image/p5_image.jpg" alt="wedding pic">
+                <div class="layer">
+                    <h3>Enchanted Pastel </h3>
+                    <h4>NRS 35,000</h4>
+                    <div class="price-box1"></div>
+                    <div class="price-box2"></div>
+                    <div class="price-box3"></div>
+                    <table class="button" style="height: 2px; font-size: 12px;">
+                        <tr>
+                            <th>ADD TO THE CART</th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="row">
+            <div class="container-col">
+                <img src="image/p7_image.jpg" alt="wedding pic">
+                <div class="layer">
+                    <h3>Enchanted Mauve Garden</h3>
+                    <h4>NRS 43,000</h4>
+                    <div class="price-box1"></div>
+                    <div class="price-box2"></div>
+                    <div class="price-box3"></div>
+                    <table class="button" style="height: 2px; font-size: 12px;">
+                        <tr>
+                            <th>ADD TO THE CART</th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="container-col">
+                <img src="image/p10_image.jpeg" alt="wedding pic">
+                <div class="layer">
+                    <h3>Ivory Elegance Ensemble</h3>
+                    <h4>NRS 30,000</h4>
+                    <div class="price-box1"></div>
+                    <div class="price-box2"></div>
+                    <div class="price-box3"></div>
+                    <table class="button" style="height: 2px; font-size: 12px;">
+                        <tr>
+                            <th>ADD TO THE CART</th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="container-col">
+                <img src="image/p6_image.jpg" alt="wedding pic">
+                <div class="layer">
+                    <h3>Serenade in White</h3>
+                    <h4>NRS 35,000</h4>
+                    <div class="price-box1"></div>
+                    <div class="price-box2"></div>
+                    <div class="price-box3"></div>
+                    <table class="button" style="height: 2px; font-size: 12px;">
+                        <tr>
+                            <th>ADD TO THE CART</th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!------aboutus------>
+
+    <section class="aboutus" style="background-color: white;">
+        <div class="sons">
+            <table width="100%">
+                <hr width="100%" size="2" color=#A05800>
+                <tr>
+
+                    <th> GET TO KNOW ABOUT US </th>
+                    <th> CUSTOMIZE YOUR LOOK FOR YOUR SPECIAL DAY</th>
+                    <th> GET CONNECTED TO US </th>
+                </tr>
+
+
+                <tr>
+
+
+                    <td> About SHRINGAAR</td>
+                    <td> Design your outfit</td>
+                    <td> Connect to us</td>
+
+                </tr>
+
+
+
+                <tr>
+
+                    <td> FAQ</td>
+                    <td> Past Designs</td>
+                    <td> Visit us</td>
+
+                </tr>
+
+
+
+
+                <tr>
+
+                    <td> Warranty</td>
+                    <td> Event Inspired Looks</td>
+                    <td> Business Inquiries</td>
+
+
+                </tr>
+
+
+
+                <tr>
+
+                    <td> Review</td>
+                    <td> Shop by Event</td>
+                    <td> Track your Order</td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td> Resizing Policy</td>
+                    <td> Accesories</td>
+                    <td> Customer Concerns</td>
+
+                </tr>
+                <tr>
+                    <td> Returning Ploicy</td>
+                    <td>Shop by Style </td>
+                    <td> Shop by Event</td>
+
+
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td> Shop by Ethinicity</td>
+                    <td></td>
+
+                </tr>
+                <tr>
+                    <td></td>
+                    <td> Shop by Brand</td>
+                    <td></td>
+
+                </tr>
+
+
+                <tr>
+                    <td></td>
+                    <td> Shop by Fabric</td>
+                    <td></td>
+
+                </tr>
+
+
+            </table>
+        </div>
+
+        <hr width="100%" size="2" color=#A05800>
+        <h50 style="width: fit-content; padding-left: 701px;"> JOIN US</h50>
+
+        <p style="width: fit-content; padding-left: 293px;text-align: center;"> Stay connected with us for our latest
+            products offerings. Get updates with all the new products in the shop and be the<br>
+            earliest to grab it. We respect our customer’s privacy and care about protection of your data. For further
+            information,
+            <br>Please go through our Privacy Policy. Lets connect together as a family and share the happiness of the
+            happeningness.
+        </p>
+        <div class="sign-up" style="width: fit-content;">
+        </div>
+
+        <hr width="100%" size="2" color=#A05800 style="margin-top: 30px;">
+    </section>
+
+
+
+    <!------footer------>
+    <section style="background-color: white; margin-top: -16px;">
+        <nav1 style="background-color: white;">
+            <div class="okok" style="background-color: white;">
+
+                <ul>
+                    <li> <img src="image/ss.image.png"></i></li>
+                    <li> Privacy Policy Terms of Service</li>
+                    <li> All rights Reserved</li>
+                    <li>@2024 SHRINGAAR </li>
+                </ul>
+
+
+            </div>
+        </nav1>
+
+        <div class="end">
+            <p>TO LOVE, TO LIVE AND TO LAUGH</p>
+
+        </div>
+    </section>
+</body>
+
+</html>

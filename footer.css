@@ -1,0 +1,76 @@
+*{
+    font-family: 'Inter';
+}
+.aboutus{
+    padding-top: 100px;
+
+}
+.aboutus table td{
+    text-align: center;
+    color:#A86A1E;
+}
+.aboutus table th{
+    text-align: center;
+    color: #A86A1E;
+}
+.aboutus h50{
+    color:#A86A1E;
+}
+.aboutus p{
+    color:#A86A1E;
+}
+.hi-gtn{
+    display: inline-block;
+    text-decoration: none;
+    background: #A86A1E ;
+    color: white;
+    border: 1px solid#A86A1E;
+    padding: 5px 30px;
+    font-size: 20px;
+    position: relative;
+    cursor: pointer;
+}
+.saum{
+    padding-bottom: 6%;
+}
+.sign-up{
+        float:right
+    }
+.sons{
+    padding-bottom: 3%;
+
+}
+/*-----footer-----*/
+.nav1{
+    display: flex;
+    padding: 0% 0%;
+    justify-content: space-between;
+    align-items: center;
+}
+.okok{
+    flex:1;
+}
+.okok ul li{
+    list-style: none;
+    display: inline-block;
+    padding: 30px;
+    position: relative;
+    color: #A86A1E;
+}
+.okok ul li i{
+    color: #A86A1E;
+    text-decoration: none;
+    font-size: 18px;
+}
+.end{
+    background: #A86A1E;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 10px;
+}
+.end p{
+    color: white;
+    margin: 0;
+    font-size: 16px;
+    padding: 7px;
+}
